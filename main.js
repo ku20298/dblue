@@ -19,8 +19,8 @@ function drawCanvas(source) {
         image.src = source;
         image.onload = function () {
             if (image.width > 1000 && image.height > 1000) {
-                image.width = Math.floor(image.width * 0.6)
-                image.height = Math.floor(image.height * 0.6)
+                image.width = Math.floor(image.width * 0.2)
+                image.height = Math.floor(image.height * 0.2)
             }
             canvas.width = image.width;
             canvas.height = image.height;
