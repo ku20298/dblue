@@ -18,10 +18,13 @@ function drawCanvas(source) {
         var image = new Image();
         image.src = source;
         image.onload = function () {
+            if (image.width > 1000 && image.height > 1000) {
+                image.width = Math.floor(image.width * 0.6)
+                image.height = Math.floor(image.height * 0.6)
+            }
             canvas.width = image.width;
             canvas.height = image.height;
             context.drawImage(image, 0, 0);
-            // engine(canvas);
             
             var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
             var data = imageData.data
@@ -30,7 +33,6 @@ function drawCanvas(source) {
                 var r = data[i] / 255;
                 var g = data[i + 1] / 255;
                 var b = data[i + 2] / 255;
-                // console.log(data[i], data[i + 1], data[i + 2]);
                 imageData = checkColor(r, g, b, i, imageData);
             }
         
@@ -39,23 +41,6 @@ function drawCanvas(source) {
     }
 }
 
-/*
-function engine(canvas) {
-    var context = canvas.getContext("2d");
-    var data = context.getImageData(0, 0, canvas.width, canvas.height).data;
-
-    for (var i = 0, l = canvas.width * canvas.height; i < l; i += 4) {
-        var r = data[i] / 255
-        var g = data[i + 1] / 255
-        var b = data[i + 2] / 255
-        // console.log(data[i], data[i + 1], data[i + 2])
-        checkColor(r, g, b, i)
-    }
-
-    context.putImageData(imageData, 0, 0);
-}
-*/
-
 var dR = 0.0 / 255.0;
 var dG = 210.0 / 255.0;
 var dB = 255.0 / 255.0;
@@ -63,8 +48,8 @@ var dB = 255.0 / 255.0;
 function checkColor(r, g, b, i, imageData) {
     var distance = Math.sqrt((dR - r) * (dR - r) + (dG - g) * (dG - g) + (dB - b) * (dB - b));
     var data = imageData.data;
-    // console.log(distance);
-    if (distance < 0.62) {//0.62
+
+    if (distance < 0.62) {
         console.log("d");
         data[i] = 1;
         data[i + 1] = 51;
