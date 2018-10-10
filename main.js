@@ -18,13 +18,13 @@ function drawCanvas(source) {
         var image = new Image();
         image.src = source;
         image.onload = function () {
-            if (image.width > 1000 && image.height > 1000) {
-                image.width = Math.floor(image.width * 0.2)
-                image.height = Math.floor(image.height * 0.2)
-            }
             canvas.width = image.width;
             canvas.height = image.height;
             context.drawImage(image, 0, 0);
+            
+            if (image.width > 1000) {
+                context.scale(0.3, 0.3);
+            }
             
             var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
             var data = imageData.data
