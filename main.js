@@ -48,7 +48,8 @@ function drawCanvas(source) {
             context.putImageData(imageData, 0, 0);
             
             var dataURL = canvas.toDataURL("image/jpeg", 1.0);
-            document.getElementById("result").src = dataURL;
+            var result  = document.getElementById("result");
+            result.src = dataURL;
             
         };
     }
