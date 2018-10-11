@@ -1,4 +1,4 @@
-# dblue-js
+# dbluejs
 青、全部、ドラゴンズブルー
 
-https://ku20298.github.io/dblue-js/
+https://ku20298.github.io/dbluejs/
