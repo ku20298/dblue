@@ -37,6 +37,7 @@ function drawCanvas(source) {
                 var g = data[i + 1] / 255;
                 var b = data[i + 2] / 255;
                 var a = data[i + 3];
+                console.log(a)
                 imageData = checkColor(r, g, b, a, i, imageData);
             }
         
@@ -59,12 +60,10 @@ function checkColor(r, g, b, a, i, imageData) {
     var data = imageData.data;
 
     if (distance < 0.62) {
-        console.log("d");
         data[i] = 1;
         data[i + 1] = 51;
         data[i + 2] = 206;
         data[i + 3] = a;
-        
     }
 
     return imageData;
