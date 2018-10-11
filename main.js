@@ -23,9 +23,9 @@ function drawCanvas(source) {
             context.drawImage(image, 0, 0);
             
             if (image.width > 1000) {
-                canvas.width = 600;
-                canvas.height = 600;
-                context.drawImage(image, 0, 0, 600, 600);
+                canvas.width = 1000;
+                canvas.height = Math.floor(canvas.height * (1000 / image.width));
+                context.drawImage(image, 0, 0, canvas.width, canvas.height);
             }else {
                 canvas.width = image.width;
                 canvas.height = image.height;
