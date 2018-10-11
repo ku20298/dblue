@@ -18,13 +18,15 @@ function drawCanvas(source) {
         var image = new Image();
         image.src = source;
         image.onload = function () {
+            /*
             canvas.width = image.width;
             canvas.height = image.height;
             context.drawImage(image, 0, 0);
+            */
             
             if (image.width > 700) {
                 canvas.width = 700;
-                canvas.height = Math.floor(canvas.height * (700 / image.width));
+                canvas.height = Math.floor(image.height * (700 / image.width));
                 context.drawImage(image, 0, 0, canvas.width, canvas.height);
             }else {
                 canvas.width = image.width;
