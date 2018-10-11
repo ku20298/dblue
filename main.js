@@ -23,7 +23,13 @@ function drawCanvas(source) {
             context.drawImage(image, 0, 0);
             
             if (image.width > 1000) {
-                context.scale(0.3, 0.3);
+                canvas.width = 600;
+                canvas.height = 600;
+                context.drawImage(image, 0, 0, 600, 600);
+            }else {
+                canvas.width = image.width;
+                canvas.height = image.height;
+                context.drawImage(image, 0, 0);
             }
             
             var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
