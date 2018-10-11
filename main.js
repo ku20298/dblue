@@ -12,6 +12,7 @@ function loadImage(event) {
 
 function drawCanvas(source) {
     var canvas = document.getElementById("canvas");
+    canvas.style.display = "none";
 
     if (canvas.getContext) {
         var context = canvas.getContext("2d");
@@ -45,6 +46,10 @@ function drawCanvas(source) {
             }
         
             context.putImageData(imageData, 0, 0);
+            
+            var dataURL = canvas.toDataURL("image/jpeg", 1.0);
+            document.getElementById("result").src = dataURL;
+            
         };
     }
 }
