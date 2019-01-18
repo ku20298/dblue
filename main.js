@@ -21,10 +21,23 @@ function drawCanvas(source) {
             canvas.width = image.width;
             canvas.height = image.height;
 
-            var rimitSize = document.getElementsByName("size");
+            // var rimitSize = 100;
 
-            if (image.width > rimitSize.value) {
-                context.scale(rimitSize.value / canvas.width, rimitSize.value / canvas.width);
+            // var rimit = document.getElementsByName("size");
+            // switch (rimit.value) {
+            //     case "a":
+            //         rimitSize = 1000;
+            //         break;
+            //     case "b":
+            //         rimitSize = 360;
+            //         break;
+            //     case "c":
+            //         rimitSize = 10000;
+            //         break;
+            // }
+
+            if (image.width > 1000) {
+                context.scale(1000 / canvas.width, 1000 / canvas.width);
             }
 
             context.drawImage(image, 0, 0);
@@ -51,23 +64,23 @@ var dB = 255.0 / 255.0;
 
 function checkColor(r, g, b, i, imageData) {
     var color = document.getElementsByName("color");
-    switch (color.value) {
-        case "blue":
-            dR = 0.0 / 255.0;
-            dG = 210.0 / 255.0;
-            dB = 255.0 / 255.0;
-            break;
-        case "red":
-            dR = 255.0 / 255.0;
-            dG = 0.0 / 255.0;
-            dB = 0.0 / 255.0;
-            break;
-        case "white":
-            dR = 255.0 / 255.0;
-            dG = 255.0 / 255.0;
-            dB = 255.0 / 255.0;
-            break;
-    }
+    // switch (color.value) {
+    //     case "blue":
+    //         dR = 0.0 / 255.0;
+    //         dG = 210.0 / 255.0;
+    //         dB = 255.0 / 255.0;
+    //         break;
+    //     case "red":
+    //         dR = 255.0 / 255.0;
+    //         dG = 0.0 / 255.0;
+    //         dB = 0.0 / 255.0;
+    //         break;
+    //     case "white":
+    //         dR = 255.0 / 255.0;
+    //         dG = 255.0 / 255.0;
+    //         dB = 255.0 / 255.0;
+    //         break;
+    // }
 
     var distance = Math.sqrt((dR - r) * (dR - r) + (dG - g) * (dG - g) + (dB - b) * (dB - b));
     var data = imageData.data;
