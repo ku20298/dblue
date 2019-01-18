@@ -10,9 +10,13 @@
         #sampleRed{
             color: red;
         }
+        p.resizeimage img {
+             width: 100%;
+        }
     </style>
 </head>
 <body>
+    <h1>青をドラゴンズブルーに変えようぜ</h1>
     <!-- <span>画像のサイズ制限(横幅):</span>
     <input name="size" type="radio" value="a" checked> 1000px
     <input name="size" type="radio" value="b"> 360px
@@ -26,7 +30,9 @@
 
     <input type="file" onChange="loadImage(event)"></br>
     <canvas id="canvas" hidden></canvas>
-    <img id="newImg">
+    <p class="resizeimage">
+        <img id="newImg">
+    </p>
 
     <script type="text/javascript" src="main.js"></script>
 </body>
