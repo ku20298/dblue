@@ -41,6 +41,8 @@ function drawCanvas(source) {
 
             if (image.width > 1000) {
                 context.scale(1000 / canvas.width, 1000 / canvas.width);
+                canvas.width = 1000;
+                canvas.height = 1000;
             }
 
             context.drawImage(image, 0, 0);
