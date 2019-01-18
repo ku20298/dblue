@@ -1,3 +1,5 @@
+var canvas = document.getElementById("canvas");
+
 function loadImage(event) {
     var file = event.target.files;
     var reader = new FileReader();
@@ -6,12 +8,13 @@ function loadImage(event) {
 
     reader.onload = function () {
         var src = reader.result;
-        drawCanvas(src);
+        drawCanvas(src); 
     };
 }
 
+
 function drawCanvas(source) {
-    var canvas = document.getElementById("canvas");
+    // var canvas = document.getElementById("canvas");
 
     if (canvas.getContext) {
         var context = canvas.getContext("2d");
@@ -54,6 +57,8 @@ function drawCanvas(source) {
             }
         
             context.putImageData(imageData, 0, 0);
+            var png = canvas.toDataURL();
+            document.getElementById("newImg").src = png;
         };
     }
 }
@@ -63,7 +68,7 @@ var dG = 210.0 / 255.0;
 var dB = 255.0 / 255.0;
 
 function checkColor(r, g, b, i, imageData) {
-    var color = document.getElementsByName("color");
+    // var color = document.getElementsByName("color");
     // switch (color.value) {
     //     case "blue":
     //         dR = 0.0 / 255.0;
