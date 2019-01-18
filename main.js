@@ -39,8 +39,8 @@ function drawCanvas(source) {
             //         break;
             // }
 
-            if (image.width > 1000) {
-                context.scale(1000 / canvas.width, 1000 / canvas.width);
+            if (image.width > 800) {
+                context.scale(800 / canvas.width, 800 / canvas.width);
             }
 
             context.drawImage(image, 0, 0);
